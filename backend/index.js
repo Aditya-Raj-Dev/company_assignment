@@ -15,7 +15,7 @@ app.post("/", (req, res) => {
     !numberPattern.test(req.body.num1) ||
     !numberPattern.test(req.body.num2)
   ) {
-    return res.status(400).send({ error: "Invalid number" });
+    return res.send({ msg: "Invalid number",status:"error" });
   }
 
   let num1 = req.body.num1.toString();
@@ -66,7 +66,7 @@ app.post("/", (req, res) => {
     }
    }
   
-  res.send({ "carrystr": carrystr,"sumstr":sumstr});
+  res.send({msg:{ "carrystr": carrystr,"sumstr":sumstr},status:"success"});
 });
 
 app.listen(8080, async () => {

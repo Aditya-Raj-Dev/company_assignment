@@ -1,0 +1,9 @@
+.ansbox{
+    background-color: rgba(1, 6, 29, 0.734);
+    height: 300px;
+    width:500px;
+    margin: auto;
+    padding-top: 50px;
+    padding-left: 20px;
+    text-align: center;
+}
