@@ -29,13 +29,14 @@ app.post("/", (req, res) => {
     sum = +n1[i] + +n2[i];
     carry[0] === "1" ? (sum = sum + 1) : (sum = sum + 0);
     if (sum > 9) {
-      carry.push("1");
       if (i === 0) {
         sum = sum.toString();
         ans.push(sum);
+        carry.push("0");
       } else {
         sum = sum.toString();
         ans.push(sum[1]);
+        carry.push("1");
       }
     } else {
       carry.push("0");
@@ -56,9 +57,16 @@ app.post("/", (req, res) => {
     }
     sumstr.push(k);
     carrystr.push(c);
-  }
-  carrystr.pop();
-  res.send({ "carrystr": carrystr,"sumstr": sumstr });
+  } 
+ 
+  let len=carrystr.length-1
+   for(let k=len; k>=0; k--){
+   if(carrystr[k][0]==="0" && k===carrystr.length-1){
+      carrystr.pop()
+    }
+   }
+  
+  res.send({ "carrystr": carrystr,"sumstr":sumstr});
 });
 
 app.listen(8080, async () => {
