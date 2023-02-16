@@ -44,7 +44,7 @@ const Addsteps = () => {
       })
     }
 
-    console.log(show)
+
   return (
     <div >
         <h1>Step Addition App</h1>
@@ -82,7 +82,7 @@ const Addsteps = () => {
                        {
                          `{ step${i+1}: 
                          {"carryString":
-                         "${carrystr[i]?carrystr[i]:carrystr[carrystr.length-1]}_","sumString":"${item}" }`
+                         "${carrystr.length===0?"":carrystr[i]?carrystr[i]:carrystr[carrystr.length-1]}_","sumString":"${item}" }`
                        }
                         </div>
                     ))

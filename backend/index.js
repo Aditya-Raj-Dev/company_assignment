@@ -27,7 +27,9 @@ app.post("/", (req, res) => {
   let ans = [];
   for (let i = max - 1; i >= 0; i--) {
     sum = +n1[i] + +n2[i];
-    carry[0] === "1" ? (sum = sum + 1) : (sum = sum + 0);
+    carry[carry.length-1] === "1" ? (sum = sum + 1) : (sum = sum + 0);
+    console.log(carry[0])
+    console.log(carry)
     if (sum > 9) {
       if (i === 0) {
         sum = sum.toString();
