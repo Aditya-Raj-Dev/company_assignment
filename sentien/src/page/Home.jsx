@@ -13,6 +13,7 @@ import { Input } from "@chakra-ui/react";
 const Home = () => {
   const [inputtext, setInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [genre,setGenre]=useState([9])
 
   let data = [
     { title: "The Matrix", rating: 7.5, category: "Action" },
@@ -49,6 +50,10 @@ const Home = () => {
 
     setSearchResults(results);
   }, 300);
+
+  function handlegenre(i){
+   setGenre([...genre,i])
+  }
 
   useEffect(() => {
     handlesearch();
@@ -120,7 +125,7 @@ const Home = () => {
             <AccordionPanel pb={4}>
               {data.map((item, i) => (
                 <Flex gap="10px" key={i}>
-                  <input type="checkbox" />
+                  <input type="checkbox" checked={genre===i} onClick={()=>handlegenre(i)}/>
                   <h1>{item.category}</h1>
                 </Flex>
               ))}
